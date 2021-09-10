@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,800,800i,900i&display=swap");
+
+$primary-color: #82c0e1;
+$font-fam: "Arial";
+$height-btn: 30px;
+$border-radius: 5px;
+
+html,
+body {
+  background: #ffff;
+  color: #333;
+  font-family: $font-fam;
+}
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: $font-fam;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  padding: 1px;
+  width: 500px;
+  height: 220px;
+  text-align: center;
+  background-color: #f6f6f6;
+  border-radius: 10px;
+}
+
+.input {
+  width: 400px;
+  height: 30px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $primary-color;
+  border-radius: $border-radius;
+}
+
+.button {
+  background-color: $primary-color;
+  border: none;
+  color: rgb(10, 10, 10);
+  border-radius: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 400px;
+  height: $height-btn;
+  cursor: pointer;
+}
+
+.h1header {
+  color: $primary-color;
+}

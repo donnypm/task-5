@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import data from "../data-dummy/data.json";
 
 const formSlice = createSlice({
   name: "formList",
@@ -27,19 +28,13 @@ const formSlice = createSlice({
       };
       state.push(newList);
     },
-    updateList: (state, action) => {
-      const editList = {
-        title: action.payload.title,
-        quantity: action.payload.quantity,
-        price: action.payload.price,
-      };
-    },
+
     deleteList: (state, action) => {
       return state.filter((list) => list.id !== action.payload.id);
     },
   },
 });
 
-export const { addList, deleteList } = formSlice.actions;
+export const { addList, updateList, deleteList } = formSlice.actions;
 
 export default formSlice.reducer;

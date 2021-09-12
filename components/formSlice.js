@@ -28,6 +28,12 @@ const formSlice = createSlice({
       };
       state.push(newList);
     },
+    updateList: (state, action) => {
+      const index = state.findIndex((list) => list.id !== action.payload.id);
+      state[index].title = action.payload.title;
+      state[index].quantity = action.payload.quantity;
+      state[index].price = action.payload.price;
+    },
 
     deleteList: (state, action) => {
       return state.filter((list) => list.id !== action.payload.id);

@@ -6,10 +6,12 @@ import data from "../data-dummy/data.json";
 import formList from "../components/formlist";
 import styles from "../styles/Home.module.scss";
 import { useDispatch } from "react-redux";
-import { addList } from "../components/formSlice";
+import { addList, updateList } from "../components/formSlice";
 
-function ViewList() {
+function ViewList(list) {
   const dispatch = useDispatch();
+
+  const [isUpdate, setIsUpdate] = useState({ id: null, status: false });
 
   const [userInput, setUserInput] = useState({
     title: "",
@@ -34,16 +36,29 @@ function ViewList() {
       return false;
     }
 
-    dispatch(
-      addList({
-        title: userInput.title,
-        quantity: userInput.quantity,
-        price: userInput.price,
-      })
-    );
-    alert("Berhasil TAMBAH Data");
+    if (isUpdate.status) {
+      dispatch(
+        updateList({
+          id: list.id,
+          title: userInput.title,
+          quantity: userInput.quantity,
+          price: userInput.price,
+        })
+      );
+      alert("Berhasil EDIT Data");
+    } else {
+      dispatch(
+        addList({
+          title: userInput.title,
+          quantity: userInput.quantity,
+          price: userInput.price,
+        })
+      );
+      alert("Berhasil TAMBAH Data");
+    }
 
     setUserInput({ title: "", quantity: "", price: "" });
+    setIsUpdate({ id: null, status: false });
   };
 
   const handleEdit = (list) => {
@@ -52,6 +67,7 @@ function ViewList() {
       quantity: list.quantity,
       price: list.price,
     });
+    setIsUpdate({ id: list.id, status: true });
   };
 
   return (

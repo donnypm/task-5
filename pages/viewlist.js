@@ -6,7 +6,7 @@ import data from "../data-dummy/data.json";
 import formList from "../components/formlist";
 import styles from "../styles/Home.module.scss";
 import { useDispatch } from "react-redux";
-import { addList, updateList, formlist } from "../components/formSlice";
+import { addList } from "../components/formSlice";
 
 function ViewList() {
   const dispatch = useDispatch();

@@ -38,13 +38,13 @@ function ViewList(list) {
     if (isUpdate.status) {
       dispatch(
         updateList({
-          id: list.id,
+          id: isUpdate.id,
           title: userInput.title,
           quantity: userInput.quantity,
           price: userInput.price,
         })
       );
-      alert("Berhasil EDIT Data");
+      alert("Berhasil EDIT Data ");
     } else {
       dispatch(
         addList({

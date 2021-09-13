@@ -27,6 +27,7 @@ const formSlice = createSlice({
       };
       state.push(newList);
     },
+
     updateList: (state, action) => {
       const index = state.findIndex((list) => list.id === action.payload.id);
       state[index].title = action.payload.title;

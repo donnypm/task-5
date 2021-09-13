@@ -2,7 +2,6 @@ import Head from "next/head";
 import React, { useState } from "react";
 import FormList from "../components/formlist";
 import Header from "../components/header";
-import data from "../data-dummy/data.json";
 import formList from "../components/formlist";
 import styles from "../styles/Home.module.scss";
 import { useDispatch } from "react-redux";

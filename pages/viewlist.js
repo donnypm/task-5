@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.scss";
 import { useDispatch } from "react-redux";
 import { addList, updateList } from "../components/formSlice";
 
-function ViewList(list) {
+function ViewList() {
   const dispatch = useDispatch();
 
   const [isUpdate, setIsUpdate] = useState({ id: null, status: false });

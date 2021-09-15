@@ -17,8 +17,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Masuk Ke Halaman List untuk melihat <a href="/viewlist"> Form List</a>
         </p>
 
         <div className={styles.grid}>

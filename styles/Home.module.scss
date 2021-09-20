@@ -96,3 +96,32 @@ $border-radius: 5px;
   border: none;
   cursor: pointer;
 }
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  font-size: 16px;
+  width: 100%;
+  border: 3px solid $primary-color;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #131211 !important;
+}
+
+.searchTerm:focus {
+  color: $primary-color;
+}
+
+.p_list {
+  line-height: 5px;
+}
+
+.list_title {
+  font-weight: bold;
+}

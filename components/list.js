@@ -11,9 +11,11 @@ const List = (props) => {
   return (
     <div>
       <div className={styles.list}>
-        {list.title} <br />
-        {list.quantity} <br />
-        {list.price}
+        <div className={styles.p_list}>
+          <p className={styles.list_title}>{list.title} </p>
+          <p>{list.quantity} </p>
+          <p>{list.price}</p>
+        </div>
         <div className={styles.button_list}>
           <button
             onClick={() => handleEdit(list)}

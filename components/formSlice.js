@@ -6,13 +6,13 @@ const formSlice = createSlice({
     {
       id: 1,
       title: "Title 1",
-      quantity: 1,
+      quantity: 11,
       price: 11000,
     },
     {
       id: 2,
       title: "Title 2",
-      quantity: 2,
+      quantity: 22,
       price: 22000,
     },
   ],
@@ -41,6 +41,7 @@ const formSlice = createSlice({
   },
 });
 
-export const { addList, updateList, deleteList } = formSlice.actions;
+export const { addList, updateList, deleteList, setItem, getItem } =
+  formSlice.actions;
 
 export default formSlice.reducer;

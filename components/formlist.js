@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "./list";
 import { useSelector } from "react-redux";
 import styles from "/styles/Home.module.scss";
@@ -6,12 +6,24 @@ import styles from "/styles/Home.module.scss";
 const FormList = (props) => {
   const { handleEdit } = props;
   const formList = useSelector((state) => state.formList);
+
   const [inputSearch, setInputSearch] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
     setInputSearch(e.target.value);
   };
+
+  useEffect(() => {
+    const localData = localStorage.getItem("formList");
+    if (localData) {
+      formList(JSON.parse(localData));
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("Form List", JSON.stringify(formList));
+  }, [formList]);
 
   return (
     <div>

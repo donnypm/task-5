@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { uid } from "uid";
 
 const formSlice = createSlice({
   name: "formList",
-  initialState: [
+  initialState: (typeof window !== "undefined" &&
+    JSON.parse(localStorage.getItem("FormList"))) || [
     {
       id: 1,
       title: "Title 1",
@@ -20,12 +22,16 @@ const formSlice = createSlice({
   reducers: {
     addList: (state, action) => {
       const newList = {
-        id: state.length + 1,
+        id: uid(),
         title: action.payload.title,
         quantity: action.payload.quantity,
         price: action.payload.price,
       };
       state.push(newList);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("FormList", JSON.stringify(state));
+        console.log(localStorage.getItem("FormList"));
+      }
     },
 
     updateList: (state, action) => {
@@ -33,15 +39,20 @@ const formSlice = createSlice({
       state[index].title = action.payload.title;
       state[index].quantity = action.payload.quantity;
       state[index].price = action.payload.price;
+      localStorage.setItem("FormList", JSON.stringify(state));
+      console.log(localStorage.getItem("FormList"));
     },
 
     deleteList: (state, action) => {
-      return state.filter((list) => list.id !== action.payload.id);
+      const filteredState = state.filter(
+        (list) => list.id !== action.payload.id
+      );
+      localStorage.setItem("FormList", JSON.stringify(filteredState));
+      return filteredState;
     },
   },
 });
 
-export const { addList, updateList, deleteList, setItem, getItem } =
-  formSlice.actions;
+export const { addList, updateList, deleteList } = formSlice.actions;
 
 export default formSlice.reducer;

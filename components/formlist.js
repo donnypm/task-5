@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import List from "./list";
 import { useSelector } from "react-redux";
 import styles from "/styles/Home.module.scss";
@@ -13,17 +13,6 @@ const FormList = (props) => {
     e.preventDefault();
     setInputSearch(e.target.value);
   };
-
-  useEffect(() => {
-    const localData = localStorage.getItem("formList");
-    if (localData) {
-      formList(JSON.parse(localData));
-    }
-  });
-
-  useEffect(() => {
-    localStorage.setItem("Form List", JSON.stringify(formList));
-  }, [formList]);
 
   return (
     <div>
@@ -42,7 +31,11 @@ const FormList = (props) => {
           if (inputSearch === "") {
             return list;
           } else if (
-            list.title.toLowerCase().includes(inputSearch.toLocaleLowerCase())
+            (list.title.toLowerCase().includes(inputSearch.toLocaleLowerCase()),
+            list.quantity
+              .toLowerCase()
+              .includes(inputSearch.toLocaleLowerCase()),
+            list.price.toLowerCase().includes(inputSearch.toLocaleLowerCase()))
           ) {
             return list;
           }
